@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="orientation" content="portrait">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+	<title>外教学科英语小课堂</title>
+	<script>
+    (function() {
+        var base = 750;
+        (function() {
+            var scale = screen.width / base;
+            var meta = document.querySelector('meta[name="viewport"]');
+            meta.setAttribute('content', 'width=' + base + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=0,target-densitydpi=device-dpi');
+        })();
+    })();
+    </script>
+    <style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul,li {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		.english-container {
+			position: relative;
+		}
+		.english-header {
+			width: 750px;
+			height: 257px;
+			background: url(imgs/english-get-header.png) no-repeat;
+		}
+		.english-content {
+			width: 750px;
+			height: 948px;
+			background: url(imgs/english-course.png) no-repeat;
+			position: relative;
+		}
+		.get-btn {
+			width: 550px;
+			height: 88px;
+			background-color: #f13232;
+			color: #fff;
+			font-size: 46px;
+			line-height: 88px;
+			text-align: center;
+			border-radius: 88px;
+			position: absolute;
+			top: 480px;
+			left: 50%;
+			margin-left: -275px;
+		}
+		.rules {
+			padding: 0 36px;
+			color: #333;
+			margin-bottom: 100px;
+			position: absolute;
+			top: 600px;
+		}
+		.rules h1 {
+			font-size: 30px;
+			font-weight: normal;
+			line-height: 2;
+		}
+		.rules p {
+			font-size: 30px;
+			line-height: 1.5;
+			text-align: justify;
+		}
+		.input-info-box {
+			width: 750px;
+			height: 450px;
+			background: #fff;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 900;
+			box-sizing: border-box;
+			padding: 30px;
+			color: #666;
+			text-align: center;
+			display: none;
+		}
+		.drag {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+			z-index: 800;
+			display: none;
+		}
+		.close-btn {
+			position: absolute;
+			right: 30px;
+			top: 30px;
+			width: 25px;
+			height: 26px;
+			background: url(imgs/close-btn.png) no-repeat;
+		}
+		.input-box-title {
+			font-size: 30px;
+			font-weight: normal;
+		}
+		.input-word {
+			font-size: 24px;
+			padding: 13px 0 25px 0;
+		}
+		.input-content {
+			width: 100%;
+			border: none;
+			outline: none;
+			border-bottom: 1px solid #ccc;
+			font-size: 50px;
+			color: #333;
+			padding: 14px 0;
+			text-align: center;
+			margin-top: 46px;
+		}
+		.test-input-content {
+			width: 100%;
+			border: none;
+			outline: none;
+			border-bottom: 1px solid #ccc;
+			font-size: 50px;
+			color: #333;
+			padding: 26px 0;
+			text-align: center;
+		}
+		.test-info-box {
+			width: 750px;
+			height: 650px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 900;
+			box-sizing: border-box;
+			padding: 30px;
+			color: #666;
+			text-align: center;
+			background-color: #fff;
+			display: none;
+		}
+		.next-btn {
+			height: 90px;
+			background-color: #ccc;
+			text-align: center;
+			border-radius: 90px;
+			margin-top: 50px;
+			line-height: 90px;
+			font-size: 30px;
+			color: #fff;
+		}
+		.can-click {
+			background-color: #f13232;
+		}
+		.input-intro {
+			display: inline-block;
+			margin-top: 30px;
+			font-size: 24px;
+			color: #999;
+		}
+		.input-intro a {
+			color: #1cadf6;
+		}
+		.prev-btn {
+			position: absolute;
+			left: 30px;
+			top: 30px;
+			width: 15px;
+			height: 26px;
+			background: url(imgs/left-arrow.png) no-repeat;
+		}
+		.send-btn {
+			display: inline-block;
+			width: 270px;
+			height: 80px;
+			box-sizing: border-box;
+			border: 1px solid #b5b5b5;
+			border-radius: 10px;
+			font-size: 24px;
+			text-align: center;
+			line-height: 80px;
+		}
+		.change-phone {
+			font-size: 24px;
+			padding: 20px 0 25px 0;
+			display: block;
+		}
+		.change-phone a {
+			color: #1cadf6;
+		}
+		.alert-box {
+			position: absolute;
+			top: 40px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: inline-block;
+			padding: 15px 15px;
+			background-color: rgba(0, 0, 0, 0.8);
+			color: #fff;
+			z-index: 999;
+			font-size: 30px;
+			border-radius: 10px;
+		}
+    </style>
+</head>
+<body>
+	<div class="english-container" id="get-english-box">
+		<div class="english-header"></div>
+		<div class="english-content">
+			<div class="get-btn">免费领取</div>
+			<div class="rules">
+				<h1>活动规则</h1>
+				<p>1、每位用户完成邀请任务后仅可领取一次本课程</p>
+				<p>2、本课程为活动专属奖励，领取后不可退换或兑现</p>
+				<p>3、学而思网校保留对活动法律范围允许的解释权</p>
+			</div>
+		</div>
+	</div>
+	<div class="drag"></div>
+	<div class="input-info-box">
+		<span class="close-btn input-close"></span>
+		<h2 class="input-box-title">请输入手机号或网校账户</h2>
+		<input type="text" class="input-content">
+		<div class="next-btn input-next-btn">下一步</div>
+		<span class="input-intro">登录代表您已同意<a href="#">《用户注册协议》</a></span>
+	</div>
+	<div class="test-info-box">
+		<span class="prev-btn"></span>
+		<span class="close-btn test-close"></span>
+		<h2 class="input-box-title">请输入手机号或网校账户</h2>
+		<p class="input-word">发送给<span class="phone-num">+86 18845724607</span></p>
+		<span class="send-btn">60秒后重新发送</span>
+		<span class="change-phone">手机不在身边？<a href="javascript:;" class="change-phone-btn">更换手机号码</a></span>
+		<input type="text" class="test-input-content">
+		<div class="test-next-btn next-btn">下一步</div>
+		<span class="input-intro">登录代表您已同意<a href="#">《用户注册协议》</a></span>
+	</div>
+	<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>
+	<script src="js/orient.js"></script>
+	<script>
+		var $inputInfoBox = $('.input-info-box');
+		var $testInfoBox = $('.test-info-box');
+		var $inputNextBtn = $('.input-next-btn');
+		var $testNextBtn = $('.test-next-btn');
+		var $inputContent = $('.input-content');
+		var $testInputContent = $('.test-input-content');
+		var $inputClose = $('.input-close');
+		var $testClose = $('.test-close');
+		var $changePhoneBtn = $('.change-phone-btn');
+		var $drag = $('.drag');
+		var $getBtn = $('.get-btn');
+		var $prevBtn = $('.prev-btn');
+		var $phoneNum = $('.phone-num');
+		var $sendBtn = $('.send-btn');
+		var inputClickFlag = false;
+		var testClickFlag = false;
+		var getInfo = "";
+		var clickSendFlag = false;
+		var count = 60;
+		var timer;
+		$getBtn.on('click', function () {
+			$inputInfoBox.show();
+			$drag.show();
+		});
+		$inputContent.on('keyup', function () {
+			if ($(this).val()) {
+				$inputNextBtn.addClass('can-click');
+				inputClickFlag = true;
+			} else {
+				$inputNextBtn.removeClass('can-click');
+				inputClickFlag = false;
+			}
+		});
+		$testInputContent.on('keyup', function () {
+			if ($(this).val()) {
+				$testNextBtn.addClass('can-click');
+				testClickFlag = true;
+			} else {
+				$testNextBtn.removeClass('can-click');
+				testClickFlag = false;
+			}
+		});
+		function intervalFun (count, dis) {
+			timer = setInterval(function () {
+				if (count > 0) {
+					count--;
+					$sendBtn[0].innerHTML = count + '秒后重新发送';
+					clickSendFlag = false;
+				} else {
+					$sendBtn[0].innerHTML = '重新发送短信';
+					clickSendFlag = true;
+					clearInterval(timer);
+				}
+			}, dis);
+		}
+		$sendBtn.on('click', function () {
+			if (clickSendFlag) {
+				requestAjax();
+			}
+		});
+		function requestAjax () {
+			var $inputValue = $inputContent.val();
+			count = 60;
+			$.ajax({
+				url: 'ajaxTest.json',
+				type: 'POST',
+				dataType: 'json',
+				data: {
+					info: $inputValue
+				},
+				success: function (res) {
+					$inputInfoBox.hide();
+					$testInfoBox.show();
+					intervalFun(count, 1000);
+					$phoneNum.text(res.phoneNum);
+					if (res.resNo === 0) {
+						getInfo = res.code;
+					} else {
+						addAlert(res.resString);
+					}
+				}
+			});
+		}
+		function addAlert (string) {
+			var alertInfo = '<span class="alert-box">'+ string +'</span>';
+			$testInfoBox.append(alertInfo);
+			setTimeout(function () {
+				$testInfoBox.find('.alert-box').remove();
+			}, 2000);
+		}
+		$inputNextBtn.on('click', function () {
+			if (inputClickFlag) {
+				if (timer) {
+					clearInterval(timer);
+					$sendBtn[0].innerHTML = '60秒后重新发送';
+				}
+				requestAjax();
+			}
+		});
+		$testNextBtn.on('click', function () {
+			if (testClickFlag) {
+				var $testInputContentValue = $testInputContent.val();
+				if($testInputContentValue === getInfo) {
+					window.location.href="./english-course-success.html";
+				} else {
+					addAlert('验证码不正确');
+				}
+			}
+		});
+		$changePhoneBtn.on('click', function () {
+			$inputInfoBox.show();
+			$testInfoBox.hide();
+		});
+		$inputClose.on('click', function () {
+			$inputInfoBox.hide();
+			$drag.hide();
+			$inputContent.val('');
+		});
+		$prevBtn.on('click', function () {
+			$testInfoBox.hide();
+			$inputInfoBox.show();
+			$testInputContent.val('');
+		});
+		$testClose.on('click', function () {
+			clearInterval(timer);
+			$sendBtn[0].innerHTML = '60秒后重新发送';
+			$testInfoBox.hide();
+			$inputInfoBox.hide();
+			$testInputContent.val('');
+			$inputContent.val('');
+			$drag.hide();
+		});
+	</script>
+</body>
+</html>

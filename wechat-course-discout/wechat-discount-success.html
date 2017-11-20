@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="orientation" content="portrait">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+	<title>助力寒假，友情红包</title>
+	
+	<script>
+    (function() {
+        var base = 750;
+        (function() {
+            var scale = screen.width / base;
+            var meta = document.querySelector('meta[name="viewport"]');
+            meta.setAttribute('content', 'width=' + base + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=0,target-densitydpi=device-dpi');
+        })();
+    })();
+    </script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul,li {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		.get-container {
+			position: relative;
+		} 
+		.get-header {
+			width: 750px;
+			height: 307px;
+			background-image: url(imgs/get-success.png);
+			z-index: 900;
+		}
+		.get-box {
+			width: 750px;
+			height: 870px;
+			background: linear-gradient(#feda0b,#feec27);
+			position: relative;
+			margin-top: -15px;
+		}
+		.get-card {
+			width: 680px;
+			height: 410px;
+			background: url(imgs/cash-card.png) no-repeat;
+			margin: 0 auto;
+			position: relative;
+		}
+		.get-btn {
+			width: 350px;
+			height: 90px;
+			border-radius: 90px;
+			background-color: #fee922;
+			color: #e02727;
+			font-size: 36px;
+			line-height: 90px;
+			text-align: center;
+			position: absolute;
+			left: 50%;
+			margin-left: -175px;
+			bottom: 47px;
+		}
+		.act-rule {
+			padding: 47px 37px 0 37px;
+		}
+		.act-rule h1 {
+			color: #333;
+			font-size: 30px;
+			line-height: 2;
+		}
+		.act-rule p {
+			font-size: 30px;
+			color: #000;
+			text-align: justify;
+			line-height: 1.5;
+		}
+		.get-footer {
+			height: 171px;
+			background-color: #feec27;
+			padding: 44px 0;
+			box-sizing: border-box;
+		}
+		.logo {
+			width: 273px;
+			height: 83px;
+			background: url(imgs/logo.png) no-repeat;
+			margin: 0 auto;
+		}
+		.triangle-left-bottom {
+			position: absolute;
+			width: 68px;
+			height: 228px;
+			background: url(imgs/trangle-left-bottom.png) no-repeat;
+			left: 0;
+			bottom: -45px;
+		}
+		.triangle-right-bottom {
+			position: absolute;
+			width: 170px;
+			height: 140px;
+			right: 0;
+			bottom: 20px;
+			background: url(imgs/trangle-right-bottom.png) no-repeat;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="get-container" id="get-success-discount">
+		<div class="get-header"></div>
+		<div class="get-box">
+			<span class="triangle-left-bottom"></span>
+			<span class="triangle-right-bottom"></span>
+			<span class="triangle-left-top"></span>
+			<div class="get-card">
+				<div class="get-btn">立即使用</div>
+			</div>
+			<div class="act-rule">
+				<h1>活动规则</h1>
+				<p>1、本次红包仅限用户指定邀请好友领取，优惠专享</p>
+				<p>2、领取需填写手机号或网校账号，未注册用户将收到默认密码</p>
+				<p>3、每笔订单仅限使用1张优惠券，优惠券不可提现未使用红包将保存在用户账户中，支付时课勾选使用</p>
+				<p>4、学而思网校保留对活动法律范围允许的解释权</p>
+			</div>
+		</div>
+		<div class="get-footer">
+			<div class="logo"></div>
+		</div>
+	</div>
+	<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>
+	<script src="js/orient.js"></script>
+	<script>
+		var $getBtn = $('.get-btn');
+		$getBtn.on('click', function () {
+			window.location.href="http://touch.xueersi.com/FiftyEnglish/testLevel";
+		});
+	</script>
+</body>
+</html>

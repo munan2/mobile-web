@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="orientation" content="portrait">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+	<title>外教学科英语小课堂</title>
+	<script>
+    (function() {
+        var base = 750;
+        (function() {
+            var scale = screen.width / base;
+            var meta = document.querySelector('meta[name="viewport"]');
+            meta.setAttribute('content', 'width=' + base + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=0,target-densitydpi=device-dpi');
+        })();
+    })();
+    </script>
+    <style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul,li {
+			list-style: none;
+		}
+		.english-container {
+			position: relative;
+		}
+		.english-header {
+			width: 750px;
+			height: 257px;
+			background: url(imgs/english-get-header.png) no-repeat;
+		}
+		.english-content {
+			width: 750px;
+			height: 948px;
+			background: url(imgs/english-course.png) no-repeat;
+			position: relative;
+		}
+		.get-btn {
+			width: 550px;
+			height: 88px;
+			background-color: #f13232;
+			color: #fff;
+			font-size: 46px;
+			line-height: 88px;
+			text-align: center;
+			border-radius: 88px;
+			position: absolute;
+			top: 480px;
+			left: 50%;
+			margin-left: -275px;
+		} 
+		.rules {
+			padding: 0 36px;
+			color: #333;
+			margin-bottom: 100px;
+			position: absolute;
+			top: 600px;
+		}
+		.rules h1 {
+			font-size: 30px;
+			font-weight: normal;
+			line-height: 2;
+		}
+		.rules p {
+			font-size: 30px;
+			line-height: 1.5;
+			text-align: justify;
+		}
+    </style>
+</head>
+<body>
+	<div class="english-container" id="get-english-box">
+		<div class="english-header"></div>
+		<div class="english-content">
+			<div class="get-btn">立即下载APP</div>
+			<div class="rules">
+				<h1>活动规则</h1>
+				<p>1、每位用户完成邀请任务后仅可领取一次本课程</p>
+				<p>2、本课程为活动专属奖励，领取后不可退换或兑现</p>
+				<p>3、学而思网校保留对活动法律范围允许的解释权</p>
+			</div>
+		</div>
+	</div>
+	<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>
+	<script src="js/orient.js"></script>
+	<script>
+		var $getBtn = $('.get-btn');
+		$getBtn.on('click', function () {
+			window.location.href="http://www.xueersi.com/d";
+		});
+	</script>
+</body>
+</html>
