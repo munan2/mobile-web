@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> -->
 	<title>rem</title>
-	<link rel="stylesheet" href="rem.css">
+	<!-- <link rel="stylesheet" href="rem.css"> -->
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.a {
+			width: 1rem;
+			background: #00f;
+			height: 10px;
+		}
+	</style>
 </head>
 <body>
 	<div class="p1">
@@ -13,11 +24,18 @@
 	<div class="p2">
 		 宽度占屏幕的40%
 	</div>
+	<div class="a"></div>
 	<script>
 		(function () {
+			var dpr = window.devicePixelRatio;
+			var meta = document.createElement('meta');
+			document.head.appendChild(meta);
+			meta.setAttribute('name', 'viewport');
+			meta.setAttribute('content', 'user-scalable=no, initial-scale=' + (1/dpr) + ', maximum-scale='+ (1/dpr) +', minimum-scale='+ (1/dpr) +'"');
 			var clientWidth = document.documentElement.clientWidth;
-			clientWidth = clientWidth < 780 ? clientWidth : 780;
-			document.documentElement.style.fontSize = clientWidth / 100 + 'px';
+			// clientWidth = clientWidth < 780 ? clientWidth : 780;
+			document.documentElement.style.fontSize = clientWidth / 10 + 'px';
+
 		})();
 	</script>
 </body>
