@@ -31,7 +31,8 @@
 			var meta = document.createElement('meta');
 			document.head.appendChild(meta);
 			meta.setAttribute('name', 'viewport');
-			meta.setAttribute('content', 'user-scalable=no, initial-scale=' + (1/dpr) + ', maximum-scale='+ (1/dpr) +', minimum-scale='+ (1/dpr) +'"');
+			// meta.setAttribute('content', 'user-scalable=no, initial-scale=' + (1/dpr) + ', maximum-scale='+ (1/dpr) +', minimum-scale='+ (1/dpr) +'"');
+			meta.setAttribute('content', 'initial-scale=' + (1/dpr) + ', maximum-scale=' + (1/dpr) + ', minimum-scale=' + (1/dpr));
 			var clientWidth = document.documentElement.clientWidth;
 			// clientWidth = clientWidth < 780 ? clientWidth : 780;
 			document.documentElement.style.fontSize = clientWidth / 10 + 'px';
